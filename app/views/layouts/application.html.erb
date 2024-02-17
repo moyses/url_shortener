@@ -8,8 +8,12 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+    
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -19,6 +23,7 @@
       <%= tag.p notice, class: "bg-blue-100 text-blue-800 text-small font-medium px-4 py-2 rounded" if notice %>
       
       <%= yield %>
+
     </main>
   </body>
 </html>
