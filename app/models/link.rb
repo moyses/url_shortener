@@ -8,9 +8,10 @@ class Link < ApplicationRecord
     MetadataJob.perform_later(to_param)
   end
 
-  def self.find(id)
-    super ShortCode.decode(id)
+  def self.find_by_short_code(code)
+    find ShortCode.decode(code)
   end
+
 
   def to_param
     ShortCode.encode(id)
@@ -21,6 +22,6 @@ class Link < ApplicationRecord
   end
 
   def editable_by?(user)
-    user_id? && (user_id == user?.id)
+    user_id? && (user_id == user&.id)
   end
 end
