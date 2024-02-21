@@ -2,4 +2,10 @@
 
 <div id="links" class="mt-8 flex flex-col divide-y divided-gray-100">
   <%= render @links %>
+
+  <% if @pagy.pages > 1 %>
+    <div class="my-5 text-center">
+      <%== pagy_nav @pagy %>
+    </div>
+  <% end %>
 </div>
